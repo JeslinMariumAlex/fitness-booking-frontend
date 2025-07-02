@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+import { Form, Button, Alert } from 'react-bootstrap';
 import axios from 'axios';
-import './BookingForm.css';
 
 const BookingForm = ({ classId }) => {
   const [clientName, setClientName] = useState('');
   const [clientEmail, setClientEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [variant, setVariant] = useState(''); // for alert type
 
-  const handleBooking = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     axios.post('http://127.0.0.1:8000/api/book/', {
@@ -15,36 +16,48 @@ const BookingForm = ({ classId }) => {
       client_name: clientName,
       client_email: clientEmail,
     })
-    .then(() => {
-      setMessage('✅ Booking successful!');
-      setClientName('');
-      setClientEmail('');
-    })
-    .catch((error) => {
-      const msg = error.response?.data?.error || '❌ Booking failed. Try again.';
-      setMessage(msg);
-    });
+      .then(() => {
+        setMessage('✅ Booking successful!');
+        setVariant('success');
+        setClientName('');
+        setClientEmail('');
+      })
+      .catch(() => {
+        setMessage('❌ Booking failed. Please try again.');
+        setVariant('danger');
+      });
   };
 
   return (
-    <form className="booking-form" onSubmit={handleBooking}>
-      <input
-        type="text"
-        placeholder="Your Name"
-        value={clientName}
-        onChange={(e) => setClientName(e.target.value)}
-        required
-      />
-      <input
-        type="email"
-        placeholder="Your Email"
-        value={clientEmail}
-        onChange={(e) => setClientEmail(e.target.value)}
-        required
-      />
-      <button type="submit">Book</button>
-      {message && <p>{message}</p>}
-    </form>
+    <div className="mt-3">
+      {message && <Alert variant={variant}>{message}</Alert>}
+
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="formName" className="mb-2">
+          <Form.Control
+            type="text"
+            placeholder="Your Name"
+            value={clientName}
+            onChange={(e) => setClientName(e.target.value)}
+            required
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formEmail" className="mb-2">
+          <Form.Control
+            type="email"
+            placeholder="Your Email"
+            value={clientEmail}
+            onChange={(e) => setClientEmail(e.target.value)}
+            required
+          />
+        </Form.Group>
+
+        <Button variant="success" type="submit" size="sm">
+          Confirm Booking
+        </Button>
+      </Form>
+    </div>
   );
 };
 

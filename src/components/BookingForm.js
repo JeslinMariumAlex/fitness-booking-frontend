@@ -22,10 +22,12 @@ const BookingForm = ({ classId }) => {
         setClientName('');
         setClientEmail('');
       })
-      .catch(() => {
-        setMessage('❌ Booking failed. Please try again.');
-        setVariant('danger');
+      .catch(error => {
+        const errorMsg = error.response?.data?.error || '❌ Booking failed. Please try again.';
+        setMessage(`❌ ${errorMsg}`);
+        console.error('Booking error:', error);
       });
+
   };
 
   return (

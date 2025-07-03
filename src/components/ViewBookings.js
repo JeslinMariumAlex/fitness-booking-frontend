@@ -5,18 +5,32 @@ import { Form, Button, Card, Alert, Container, Row, Col } from 'react-bootstrap'
 const ViewBookings = () => {
   const [email, setEmail] = useState('');
   const [bookings, setBookings] = useState([]);
+  const [message, setMessage] = useState('');
   const [error, setError] = useState('');
 
   const handleFetchBookings = () => {
+    if (!email) {
+      setError('Please enter a valid email.');
+      setBookings([]);
+      return;
+    }
+
     axios
       .get(`http://127.0.0.1:8000/api/bookings/?email=${email}`)
       .then((response) => {
-        setBookings(response.data);
+        if (response.data.length === 0) {
+          setMessage('No bookings found for this email.');
+          setBookings([]);
+        } else {
+          setBookings(response.data);
+          setMessage('');
+        }
         setError('');
       })
       .catch(() => {
-        setError('❌ No bookings found or invalid email.');
+        setError('Something went wrong. Please try again.');
         setBookings([]);
+        setMessage('');
       });
   };
 
@@ -46,12 +60,11 @@ const ViewBookings = () => {
         </Row>
       </Form>
 
-      {error && (
+      {(error || message) && (
         <Row className="justify-content-center">
           <Col xs={12} md={6}>
-            <Alert variant="danger" className="text-center">
-              {error}
-            </Alert>
+            {error && <Alert variant="danger" className="text-center">{error}</Alert>}
+            {message && <Alert variant="info" className="text-center">{message}</Alert>}
           </Col>
         </Row>
       )}
@@ -72,12 +85,12 @@ const ViewBookings = () => {
                   <strong>Date:</strong>{' '}
                   {new Date(booking.fitness_class.datetime).toLocaleString('en-US', {
                     weekday: 'short',
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                        hour: 'numeric',
-                        minute: 'numeric',
-                        hour12: true
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: true
                   })}
                   <br />
                   <i className="bi bi-person pe-2"></i>

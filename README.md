@@ -1,7 +1,3 @@
-📘 README.md for Frontend – Fitness Studio Booking App
-markdown
-Copy
-Edit
 # 🏋️‍♀️ Fitness Studio Booking App – Frontend
 
 This is the frontend of the **Fitness Studio Booking App**, a modern single-page application (SPA) built with **React.js** and styled using **Bootstrap** and **React-Bootstrap**. It allows users to view available fitness classes, book slots, and view their booking history.
@@ -30,6 +26,7 @@ This is the frontend of the **Fitness Studio Booking App**, a modern single-page
 
 ## 📁 Folder Structure
 
+```bash
 /fitness-booking-frontend
 │
 ├── /src
@@ -43,42 +40,42 @@ This is the frontend of the **Fitness Studio Booking App**, a modern single-page
 ├── public/
 ├── package.json
 └── README.md
-
-yaml
-Copy
-Edit
-
+```
 ---
 
 ## 📦 Installation
 
 1. Clone this repository:
-   ```bash
+```bash
    git clone https://github.com/your-username/fitness-booking-frontend.git
-Install dependencies:
+```
 
-bash
-Copy
-Edit
+2. Install dependencies:
+
+```bash
 cd fitness-booking-frontend
 npm install
-Start the development server:
+```
+3. Start the development server:
 
-bash
-Copy
-Edit
+```bash
 npm start
-App runs at:
+```
+
+4. App runs at:
+
 http://localhost:3000
 
-🌐 Backend API
+## 🌐 Backend API
+
 Make sure your Backend Repository is running on:
 http://127.0.0.1:8000
 
-📸 Screenshots
-Add screenshots here to showcase UI
 
-✍️ Author
-Jeslin Marium Alex
-Full Stack Developer
-GitHub | LinkedIn
+## ✍️ Author
+
+**Jeslin Marium Alex**  
+*Full Stack Developer*
+
+- [GitHub](https://github.com/jeslinmariumalex)
+- [LinkedIn](https://www.linkedin.com/in/jeslinmariumalex)

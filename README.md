@@ -46,8 +46,9 @@ This is the frontend of the **Fitness Studio Booking App**, a modern single-page
 ## 📦 Installation
 
 1. Clone this repository:
+
 ```bash
-   git clone https://github.com/your-username/fitness-booking-frontend.git
+   git clone https://github.com/JeslinMariumAlex/fitness-booking-frontend.git
 ```
 
 2. Install dependencies:
@@ -72,10 +73,19 @@ Make sure your Backend Repository is running on:
 http://127.0.0.1:8000
 
 
+## 📌 Backend Repository
+
+This project works with a Django REST API. Check out the backend code here:
+ 
+🔗 Backend Repository: [Fitness-Studio-Booking-API
+](https://github.com/JeslinMariumAlex/Fitness-Studio-Booking-API.git)
+
+
+
 ## ✍️ Author
 
 **Jeslin Marium Alex**  
 *Full Stack Developer*
 
-- [GitHub](https://github.com/jeslinmariumalex)
-- [LinkedIn](https://www.linkedin.com/in/jeslinmariumalex)
+- 🌐 [GitHub](https://github.com/jeslinmariumalex)
+- 💼 [LinkedIn](https://www.linkedin.com/in/jeslinmariumalex)

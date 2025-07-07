@@ -67,6 +67,7 @@ npm start
 
 http://localhost:3000
 
+---
 
 ## 🌐 Backend API
 
@@ -81,7 +82,7 @@ This project works with a Django REST API. Check out the backend code here:
 🔗 Backend Repository: [Fitness-Studio-Booking-API
 ](https://github.com/JeslinMariumAlex/Fitness-Studio-Booking-API.git)
 
-
+---
 
 ## ✍️ Author
 

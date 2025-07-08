@@ -89,5 +89,4 @@ This project works with a Django REST API. Check out the backend code here:
 **Jeslin Marium Alex**  
 *Full Stack Developer*
 
-- 🌐 [GitHub](https://github.com/jeslinmariumalex)
-- 💼 [LinkedIn](https://www.linkedin.com/in/jeslinmariumalex)
+Connect with me: [GitHub](https://github.com/jeslinmariumalex) | [LinkedIn](https://www.linkedin.com/in/jeslinmariumalex)
